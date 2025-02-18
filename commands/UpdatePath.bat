@@ -1,0 +1,16 @@
+SET "DESIRED_PATH=%~1"
+
+for /f "tokens=2* delims= " %%B in ('reg query "HKCU\Environment" /v PATH 2^>nul') do (
+    SET SYSTEM_PATH="%%A"
+)
+IF NOT defined SYSTEM_PATH SET SYSTEM_PATH=""
+SET "SYSTEM_PATH=%SYSTEM_PATH:"=%"
+
+ECHO %SYSTEM_PATH% | find /I "%DESIRED_PATH%" >nul
+if %ERRORLEVEL%==0 GOTO :SKIP
+SETX PATH "%DESIRED_PATH%;%SYSTEM_PATH%"
+:SKIP
+
+ECHO %PATH% | find /I "%DESIRED_PATH%" >nul
+if %ERRORLEVEL%==0 GOTO :EOF
+SET PATH=%DESIRED_PATH%;%PATH%
