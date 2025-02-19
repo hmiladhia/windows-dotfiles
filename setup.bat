@@ -24,6 +24,7 @@ IF ERRORLEVEL 1 (
 
     CALL PPrint "# 3. Install Python"
     CALL "%CURRENT_DIR%\setup\setup_python.bat"
+    CALL RefreshPATH %EXTRA_PATH%
 
     CALL PPrint "# 4. Install Python Tools"
     CALL "%CURRENT_DIR%\setup\python_tools.bat"

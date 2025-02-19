@@ -1,5 +1,6 @@
 @ECHO off
 
+SETLOCAL
 :MAIN
     gum confirm "Setup VS Code ?" --default=false --affirmative "Yes" --negative "No" || GOTO :EOF
 
@@ -10,3 +11,4 @@
     
     COPY "%CURRENT_DIR%..\dotfiles\vscode\settings.json" "%TARGET_PATH%"
     GOTO :EOF
+ENDLOCAL
