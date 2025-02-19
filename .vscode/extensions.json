@@ -4,13 +4,11 @@
         "aaron-bond.better-comments",
         "bierner.markdown-mermaid",
         "ms-vscode-remote.remote-containers",
-
         "alefragnani.project-manager",
         "christian-kohler.path-intellisense",
         "amazonwebservices.amazon-q-vscode",
         "github.copilot",
         "chrmarti.regex",
-
         // languages
         "esbenp.prettier-vscode",
         "ms-python.python",
@@ -20,14 +18,12 @@
         "redhat.vscode-yaml",
         "tamasfe.even-better-toml",
         "rust-lang.rust-analyzer",
-
         // git
         "codezombiech.gitignore",
         "donjayamanne.githistory",
         "seatonjiang.gitmoji-vscode",
-
         // themes
         "pkief.material-icon-theme",
-
+        "davidanson.vscode-markdownlint",
     ]
 }

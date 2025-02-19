@@ -1,4 +1,4 @@
-@ECHO OFF
+@ECHO Off
 
 :MAIN
    SET PYVERSION=%1

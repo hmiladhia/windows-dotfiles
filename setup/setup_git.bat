@@ -1,15 +1,20 @@
-SET CONFIG_PATH=%1
-SET GITIGNORE_PATH=%CONFIG_PATH%\.gitignore
+@ECHO off
 
-IF EXIST "%GITIGNORE_PATH%" GOTO :SKIPGITIGNORE
-curl "https://raw.githubusercontent.com/github/gitignore/main/Global/Windows.gitignore" -o "%GITIGNORE_PATH%"
-git config --global core.excludesfile %GITIGNORE_PATH%
-:SKIPGITIGNORE
+:MAIN
+    SET CONFIG_PATH=%1
+    SET GITIGNORE_PATH=%CONFIG_PATH%\.gitignore
 
-CALL PPRINT "e-mail:"
-for /f "tokens=*" %%i in ('gum input --placeholder "email"') do git config --global user.email "%%i"
+    IF EXIST "%GITIGNORE_PATH%" GOTO :SKIPGITIGNORE
+    curl "https://raw.githubusercontent.com/github/gitignore/main/Global/Windows.gitignore" -o "%GITIGNORE_PATH%"
+    git config --global core.excludesfile %GITIGNORE_PATH%
+    :SKIPGITIGNORE
 
-CALL PPRINT "Name:"
-for /f "tokens=*" %%i in ('gum input --placeholder "name"') do git config --global user.name "%%i"
+    CALL PPrint "e-mail:"
+    for /f "tokens=*" %%i in ('gum input --placeholder "email"') do git config --global user.email "%%i"
 
-git lfs install
+    CALL PPrint "Name:"
+    for /f "tokens=*" %%i in ('gum input --placeholder "name"') do git config --global user.name "%%i"
+
+    git lfs install
+    
+    GOTO :EOF

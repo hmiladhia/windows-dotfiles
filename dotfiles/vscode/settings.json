@@ -1,7 +1,6 @@
 {
     // General settings
     "security.workspace.trust.untrustedFiles": "newWindow",
-    "window.zoomLevel": 1,
     "window.commandCenter": false,
     "files.exclude": {
         ".git": true,
@@ -19,6 +18,7 @@
     "git.autofetch": true,
     "git.suggestSmartCommit": false,
     "diffEditor.ignoreTrimWhitespace": false,
+    "scm.defaultViewMode": "tree",
     "git.showActionButton": {
         "commit": true,
         "publish": false,
@@ -36,7 +36,7 @@
         "editorError.background": "#ff80ab66",
         "editorWarning.background": "#9e951d66",
         "editorWarning.foreground": "#ffffff00",
-        "editor.rangeHighlightBackground": "#00AA00"
+        "editor.rangeHighlightBackground": "#00AA0080"
     },
     "workbench.sideBar.location": "right",
     "workbench.editor.enablePreview": false,
@@ -120,12 +120,4 @@
     "javascript.updateImportsOnFileMove.enabled": "never",
     "cmake.showOptionsMovedNotification": false,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    // "editor.suggestSelection": "first",
-    // specific
-    "remote.SSH.remotePlatform": {
-        "raspberry": "linux"
-    },
-    "projectManager.git.baseFolders": [
-        "/home/pi/projects/packages"
-    ],
 }

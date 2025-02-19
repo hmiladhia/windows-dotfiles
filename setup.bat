@@ -1,46 +1,48 @@
-@echo off
+@ECHO off
+
+WHERE /q winget
+
+IF ERRORLEVEL 1 (
+    ECHO winget should be installed
+    PAUSE
+    EXIT /B
+)
 
 :MAIN
+    SET CURRENT_DIR=%~dp0.
     SET CONFIG_PATH=%USERPROFILE%\.local
-    SET CURRENT_DIR=%~dp0
-    set PATH=%CURRENT_DIR%/commands;%PATH%
+    SET EXTRA_PATH=%CURRENT_DIR%\commands
+    SET PATH=%EXTRA_PATH%;%PATH%
 
     CALL :INIT
 
-    CALL PPRINT "# 1. Common apps"
+    CALL PPrint "# 1. Common apps"
     CALL :INSTALL_APPS
 
-    CALL PPRINT "# 2. Git Config"
-    CALL setup/setup_git.bat 
+    CALL PPrint "# 2. Git Config"
+    CALL "%CURRENT_DIR%\setup\setup_git.bat" %CONFIG_PATH%
 
-    CALL PPRINT "# 3. Install Python"
+    CALL PPrint "# 3. Install Python"
     CALL "%CURRENT_DIR%\setup\setup_python.bat"
 
-    CALL PPRINT "# 4. Install Python Tools"
+    CALL PPrint "# 4. Install Python Tools"
     CALL "%CURRENT_DIR%\setup\python_tools.bat"
 
-    CALL PPRINT "# 5. Install VS Code"
+    CALL PPrint "# 5. Install VS Code"
     CALL "%CURRENT_DIR%\setup\setup_vscode.bat"
     GOTO :EOF
 
 
 :INIT
-    where /q winget
-
-    IF ERRORLEVEL 1 (
-        ECHO winget should be installed
-        PAUSE
-        EXIT /B
-    )
-
-    CALL WINSTALL charmbracelet.gum gum
+    CALL RefreshPath %EXTRA_PATH%
+    CALL WInstall charmbracelet.gum gum
     IF NOT EXIST %CONFIG_PATH% MKDIR %CONFIG_PATH%
     GOTO :EOF
 
 
 :INSTALL_APPS
-    CALL WINSTALL Git.Git git
-    CALL WINSTALL junegunn.fzf fzf
-    CALL WINSTALL eza-community.eza eza
-    CALL WINSTALL astral-sh.uv uv
+    CALL WInstall Git.Git git
+    CALL WInstall junegunn.fzf fzf
+    CALL WInstall eza-community.eza eza
+    CALL WInstall astral-sh.uv uv
     GOTO :EOF
