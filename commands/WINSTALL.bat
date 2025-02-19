@@ -2,8 +2,11 @@
     SET APP_ID=%1
     SET CMD_NAME=%2
     SET VERSION=%3
+    SET ARGS=%4
 
-    if not "%VERSION%"=="" SET EXTRA=-v "%VERSION%"
+    SET EXTRA=
+    IF not "%ARGS%"=="" SET EXTRA=--override %ARGS%
+    if not "%VERSION%"=="" SET EXTRA=-v "%VERSION%" %EXTRA%
 
     winget install -e --id %APP_ID% %EXTRA%
 

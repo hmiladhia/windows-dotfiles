@@ -1,0 +1,131 @@
+{
+    // General settings
+    "security.workspace.trust.untrustedFiles": "newWindow",
+    "window.zoomLevel": 1,
+    "window.commandCenter": false,
+    "files.exclude": {
+        ".git": true,
+        "**/.git": false,
+        "**/__pycache__": true,
+    },
+    // "files.watcherExclude": {
+    //     "**/.venv": true
+    // },
+    "search.exclude": {
+        "**/.venv": true,
+        "**/node_modules/**": true,
+    },
+    // Git settings
+    "git.autofetch": true,
+    "git.suggestSmartCommit": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "git.showActionButton": {
+        "commit": true,
+        "publish": false,
+        "sync": false,
+    },
+    // Explorer settings
+    "explorer.excludeGitIgnore": false,
+    "explorer.autoReveal": true,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    // Workbench settings
+    "workbench.colorTheme": "Cobalt2",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorCustomizations": {
+        "editorError.background": "#ff80ab66",
+        "editorWarning.background": "#9e951d66",
+        "editorWarning.foreground": "#ffffff00",
+        "editor.rangeHighlightBackground": "#00AA00"
+    },
+    "workbench.sideBar.location": "right",
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.settings.editor": "json",
+    // Editor settings
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "files.autoSave": "afterDelay", // "onFocusChange"
+    "editor.minimap.enabled": false,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
+    // Debug settings
+    "debug.toolBarLocation": "docked",
+    // Terminal settings
+    "terminal.integrated.tabs.enabled": true,
+    "terminal.integrated.tabs.location": "right",
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    // Markdown settings
+    "markdown.preview.scrollEditorWithPreview": true,
+    "markdown.preview.scrollPreviewWithEditor": true,
+    // Languages
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typst]": {
+        "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?"
+    },
+    "[typst-code]": {
+        "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?"
+    },
+    // telemetry
+    "telemetry.telemetryLevel": "off",
+    "amazonQ.telemetry": false,
+    "redhat.telemetry.enabled": false,
+    // remote    
+    "remote.SSH.connectTimeout": 30,
+    "remote.SSH.enableX11Forwarding": false,
+    "remote.SSH.useLocalServer": false,
+    // Extensions Settings
+    "extensions.autoUpdate": "onlyEnabledExtensions",
+    "lldb.suppressUpdateNotifications": true,
+    "ruff.importStrategy": "useBundled",
+    "advancedNewFile.convenienceOptions": [
+        "last",
+        "current",
+        "root"
+    ],
+    // notebooks
+    "jupyter.askForKernelRestart": false,
+    "notebook.cellFocusIndicator": "border",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    // Python settings
+    "python.analysis.autoSearchPaths": true,
+    "python.testing.autoTestDiscoverOnSaveEnabled": true,
+    "python.terminal.activateEnvironment": true,
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    // other
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "cmake.showOptionsMovedNotification": false,
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    // "editor.suggestSelection": "first",
+    // specific
+    "remote.SSH.remotePlatform": {
+        "raspberry": "linux"
+    },
+    "projectManager.git.baseFolders": [
+        "/home/pi/projects/packages"
+    ],
+}

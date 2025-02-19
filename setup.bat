@@ -18,6 +18,9 @@
 
     CALL PPRINT "# 4. Install Python Tools"
     CALL "%CURRENT_DIR%\setup\python_tools.bat"
+
+    CALL PPRINT "# 5. Install VS Code"
+    CALL "%CURRENT_DIR%\setup\setup_vscode.bat"
     GOTO :EOF
 
 
