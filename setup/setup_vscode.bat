@@ -2,7 +2,7 @@
 
 SETLOCAL
 :MAIN
-    gum confirm "Setup VS Code ?" --default=false --affirmative "Yes" --negative "No" || GOTO :EOF
+    REM gum confirm "Setup VS Code ?" --default=false --affirmative "Yes" --negative "No" || GOTO :EOF
 
     SET CURRENT_DIR=%~dp0
     SET TARGET_PATH=%APPDATA%\Code\User\settings.json

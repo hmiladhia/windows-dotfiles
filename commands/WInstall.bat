@@ -6,9 +6,14 @@
     shift
     SET "ARGS=%*"
 
+    winget list --id %APP_ID% >nul
+    IF ERRORLEVEL 0 GOTO :EOF
+
     winget install -e --id %APP_ID% %EXTRA%
 
     CALL RefreshPath %EXTRA_PATH%
+
+    IF "%CMD_NAME%" == "" GOTO :EOF
 
     WHERE /q %CMD_NAME%
     IF NOT ERRORLEVEL 1 GOTO :EOF

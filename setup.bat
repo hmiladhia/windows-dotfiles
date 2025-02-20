@@ -29,8 +29,8 @@ IF ERRORLEVEL 1 (
     CALL PPrint "# 4. Install Python Tools"
     CALL "%CURRENT_DIR%\setup\python_tools.bat"
 
-    CALL PPrint "# 5. Install VS Code"
-    CALL "%CURRENT_DIR%\setup\setup_vscode.bat"
+    CALL PPrint "# 5. Install other Apps"
+    CALL "%CURRENT_DIR%\setup\setup_apps.bat"
     GOTO :EOF
 
 
@@ -45,5 +45,6 @@ IF ERRORLEVEL 1 (
     CALL WInstall Git.Git git
     CALL WInstall junegunn.fzf fzf
     CALL WInstall eza-community.eza eza
+    CALL WInstall jqlang.jq jq
     CALL WInstall astral-sh.uv uv
     GOTO :EOF
