@@ -1,0 +1,1 @@
+@for /f %%a in ('%*') do @SET RESULT=%%a

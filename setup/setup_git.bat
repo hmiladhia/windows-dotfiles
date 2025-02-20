@@ -19,12 +19,18 @@ SETLOCAL
     git config --global core.excludesfile %GITIGNORE_PATH%
 
     CALL PPrint "e-mail:"
-    for /f "tokens=*" %%i in ('gum input --placeholder "email"') do git config --global user.email "%%i"
-
+    CALL Read git config user.email
+    for /f "tokens=*" %%i in ('gum input --placeholder "email" --value "%RESULT%"') do git config --global user.email "%%i"
+    
     CALL PPrint "Name:"
-    for /f "tokens=*" %%i in ('gum input --placeholder "name"') do git config --global user.name "%%i"
+    CALL Read git config user.name
+    for /f "tokens=*" %%i in ('gum input --placeholder "name" --value "%RESULT%"') do git config --global user.name "%%i"
 
     git lfs install
-    
+
+    IF EXISTS %USERPROFILE%\.ssh\id_rsa GOTO :EOF
+
+    CALL Read git config user.email
+    ssh-keygen -t rsa -b 4096 -C "%RESULT%"
     GOTO :EOF
 ENDLOCAL
