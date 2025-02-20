@@ -4,6 +4,8 @@
    SET PYVERSION=%1
    IF "%PYVERSION%" == "" SET PYVERSION=3.11
 
+   CALL :UVINSTALL %PYVERSION% pyjson5
+
    SETLOCAL
    SET GUM_CHOOSE_SELECTED=pre-commit,ruff,tox,tldr
    SET TOOLS=pre-commit ruff tox tldr copier cookiecutter nbmanips mypy jupyterlab
@@ -22,5 +24,5 @@
    IF "%PACKAGE%"=="pre-commit" SET EXTRA=--with pre-commit-uv
    IF "%PACKAGE%"=="tox" SET EXTRA=--with tox-uv
 
-   uv tool install -p %PYVERSION% %EXTRA% --force %PACKAGE%
+   uv tool install -qp %PYVERSION% %EXTRA% --force %PACKAGE%
    GOTO :EOF
