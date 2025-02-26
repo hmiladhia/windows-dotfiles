@@ -1,0 +1,13 @@
+@ECHO OFF
+
+SETLOCAL
+:MAIN
+    IF NOT DEFINED EXTRA_PATH SET EXTRA_PATH=
+
+    CALL WInstall Schniz.fnm
+    fnm install 22
+
+    CALL RefreshPATH %EXTRA_PATH%
+
+    GOTO :EOF
+ENDLOCAL
