@@ -13,7 +13,7 @@ IF ERRORLEVEL 1 (
     SET CONFIG_PATH=%USERPROFILE%\.local
     SET EXTRA_PATH=%CURRENT_DIR%\commands
     SET PATH=%EXTRA_PATH%;%PATH%
-
+    
     CALL :INIT
 
     CALL PPrint "# 1. Common apps"
@@ -36,6 +36,10 @@ IF ERRORLEVEL 1 (
 
 :INIT
     CALL RefreshPath %EXTRA_PATH%
+    
+    REM workaround to accept terms
+    winget list abcdfdkjlsl
+
     CALL WInstall charmbracelet.gum gum
     IF NOT EXIST %CONFIG_PATH% MKDIR %CONFIG_PATH%
     GOTO :EOF
@@ -47,4 +51,9 @@ IF ERRORLEVEL 1 (
     CALL WInstall eza-community.eza eza
     CALL WInstall jqlang.jq jq
     CALL WInstall astral-sh.uv uv
+
+    SETX UV_NATIVE_TLS true
+    SET UV_NATIVE_TLS=true
+    SETX UV_HTTP_TIMEOUT 90
+    SET UV_HTTP_TIMEOUT=90
     GOTO :EOF

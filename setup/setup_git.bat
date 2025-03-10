@@ -28,7 +28,7 @@ SETLOCAL
 
     git lfs install
 
-    IF EXISTS %USERPROFILE%\.ssh\id_rsa GOTO :EOF
+    IF EXIST "%USERPROFILE%\.ssh\id_rsa" GOTO :EOF
 
     CALL Read git config user.email
     ssh-keygen -t rsa -b 4096 -C "%RESULT%"
